@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Action Anime | Anime Web</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== BACKGROUND (PARALLAX) ===== */
+body {
+  background:
+    linear-gradient(rgba(10,0,20,0.85), rgba(10,0,20,0.85)),
+    url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== GRID LAYOUT ===== */
+.container {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+  grid-area: header;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  background: linear-gradient(90deg,#ff4dff,#7b2cff);
+  text-shadow: 0 0 15px #ff4dff;
+}
+
+/* ===== SIDEBAR ===== */
+aside {
+  grid-area: sidebar;
+  padding: 20px;
+  background: rgba(20,0,40,0.85);
+}
+
+aside h2 {
+  margin-bottom: 15px;
+  color: #e0aaff;
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #7b2cff;
+  border-radius: 6px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+aside li:hover {
+  background: #ff4dff;
+  color: black;
+}
+
+/* ===== MAIN CONTENT ===== */
+main {
+  grid-area: main;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+/* ===== FLIP CARD ===== */
+.flip-card {
+  perspective: 1000px;
+  height: 320px;
+}
+
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* Front Image */
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Back Info */
+.flip-back {
+  background: rgba(30,0,60,0.95);
+  transform: rotateY(180deg);
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  grid-area: footer;
+  text-align: center;
+  padding: 15px;
+  background: rgba(10,0,30,0.9);
+  border-top: 2px solid #7b2cff;
+}
+
+/* ===== MEDIA QUERY (MOBILE) ===== */
+@media (max-width: 600px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<header>Action Anime</header>
+
+<aside>
+  <h2>Categories</h2>
+  <ul>
+    <li><a href="index.html" style="color:white;text-decoration:none;">Home</a></li>
+    <li>Action</li>
+    <li>Fantasy</li>
+    <li>Romance</li>
+    <li>Sci-Fi</li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- 1 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/naruto.jpeg" alt="Naruto"></div>
+    <div class="flip-back"><h3>Naruto</h3><p>Ninja battles and powerful jutsu.</p></div>
+  </div>
+</div>
+
+<!-- 2 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/aot.jpeg" alt="Attack on Titan"></div>
+    <div class="flip-back"><h3>Attack on Titan</h3><p>Humanity fights giant Titans.</p></div>
+  </div>
+</div>
+
+<!-- 3 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/demonslayer.jpeg" alt="Demon Slayer"></div>
+    <div class="flip-back"><h3>Demon Slayer</h3><p>Sword fights against demons.</p></div>
+  </div>
+</div>
+
+<!-- 4 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/onepiece.jpeg" alt="One Piece"></div>
+    <div class="flip-back"><h3>One Piece</h3><p>Pirates and epic adventures.</p></div>
+  </div>
+</div>
+
+<!-- 5 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/jjk.jpeg" alt="Jujutsu Kaisen"></div>
+    <div class="flip-back"><h3>Jujutsu Kaisen</h3><p>Cursed spirits and sorcerers.</p></div>
+  </div>
+</div>
+
+<!-- 6 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/dragon.jpeg" alt="Dragon Ball Z"></div>
+    <div class="flip-back"><h3>Dragon Ball Z</h3><p>Legendary battles and power levels.</p></div>
+  </div>
+</div>
+
+<!-- 7 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/bleach.jpeg" alt="Bleach"></div>
+    <div class="flip-back"><h3>Bleach</h3><p>Soul Reapers vs evil spirits.</p></div>
+  </div>
+</div>
+
+<!-- 8 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/black clover.jpeg" alt="Black Clover"></div>
+    <div class="flip-back"><h3>Black Clover</h3><p>Magic knights and rivalry.</p></div>
+  </div>
+</div>
+
+<!-- 9 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/mha.jpeg" alt="My Hero Academia"></div>
+    <div class="flip-back"><h3>My Hero Academia</h3><p>Superheroes in training.</p></div>
+  </div>
+</div>
+
+<!-- 10 -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front"><img src="img/chainsaw.jpeg" alt="Chainsaw Man"></div>
+    <div class="flip-back"><h3>Chainsaw Man</h3><p>Devils, chaos, and action.</p></div>
+  </div>
+</div>
+
+</main>
+
+<footer>© 2026 Anime Web</footer>
+
+</div>
+</body>
+</html>

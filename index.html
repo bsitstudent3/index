@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anime Web</title>
+
+<style>
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ===== PARALLAX BACKGROUND ===== */
+body {
+  background:
+    linear-gradient(rgba(10,0,20,0.85), rgba(10,0,20,0.85)),
+    url("images/background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* ===== SAKURA ===== */
+.sakura-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.sakura {
+  position: absolute;
+  top: -10%;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(45deg, #ffd1dc, #ff9eb5);
+  border-radius: 0 100% 0 100%;
+  animation: fall linear infinite, sway ease-in-out infinite;
+}
+
+.sakura:nth-child(1){left:10%;animation-duration:12s,4s;}
+.sakura:nth-child(2){left:30%;animation-duration:14s,5s;}
+.sakura:nth-child(3){left:50%;animation-duration:10s,3s;}
+.sakura:nth-child(4){left:70%;animation-duration:16s,6s;}
+.sakura:nth-child(5){left:90%;animation-duration:13s,4s;}
+
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(360deg); }
+}
+@keyframes sway {
+  50% { margin-left: 40px; }
+}
+
+/* ===== GRID LAYOUT ===== */
+.container {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto 1fr auto;
+  grid-template-areas:
+    "header header"
+    "sidebar main"
+    "footer footer";
+  min-height: 100vh;
+}
+
+/* ===== HEADER ===== */
+header {
+  grid-area: header;
+  padding: 20px;
+  text-align: center;
+  font-size: 2rem;
+  background: linear-gradient(90deg,#ff4dff,#7b2cff);
+  text-shadow: 0 0 15px #ff4dff;
+}
+
+/* ===== SIDEBAR ===== */
+aside {
+  grid-area: sidebar;
+  padding: 20px;
+  background: rgba(20,0,40,0.85);
+}
+
+aside ul {
+  list-style: none;
+}
+
+aside li {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #7b2cff;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+aside li:hover {
+  background: #ff4dff;
+}
+
+/* Sidebar links */
+.nav-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+aside li:hover .nav-link {
+  color: black;
+}
+
+/* ===== MAIN ===== */
+main {
+  grid-area: main;
+  padding: 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+/* ===== FLIP CARD ===== */
+.flip-card {
+  perspective: 1000px;
+  height: 320px;
+}
+
+.flip-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+.flip-card:hover .flip-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-front,
+.flip-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+/* IMAGE SIDE */
+.flip-front img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* DESCRIPTION SIDE */
+.flip-back {
+  background: rgba(30,0,60,0.95);
+  transform: rotateY(180deg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  grid-area: footer;
+  padding: 15px;
+  text-align: center;
+  background: rgba(10,0,30,0.9);
+  border-top: 2px solid #7b2cff;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width:600px){
+  .container{
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "header"
+      "main"
+      "sidebar"
+      "footer";
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Sakura -->
+<div class="sakura-container">
+  <span class="sakura"></span>
+  <span class="sakura"></span>
+  <span class="sakura"></span>
+  <span class="sakura"></span>
+  <span class="sakura"></span>
+</div>
+
+<div class="container">
+
+<header>Anime Web</header>
+
+<aside>
+  <h2>Genres</h2>
+  <ul>
+    <li><a href="action.html" class="nav-link">Action</a></li>
+    <li>Fantasy</li>
+    <li>Romance</li>
+    <li>Sci-Fi</li>
+  </ul>
+</aside>
+
+<main>
+
+<!-- Naruto -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">
+      <img src="img/naruto.jpeg" alt="Naruto">
+    </div>
+    <div class="flip-back">
+      <h3>Naruto</h3>
+      <p>A ninja who dreams of becoming Hokage.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Attack on Titan -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">
+      <img src="img/aot.jpeg" alt="Attack on Titan">
+    </div>
+    <div class="flip-back">
+      <h3>Attack on Titan</h3>
+      <p>Humanity fights against giant Titans.</p>
+    </div>
+  </div>
+</div>
+
+<!-- Demon Slayer -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">
+      <img src="img/demonslayer.jpeg" alt="Demon Slayer">
+    </div>
+    <div class="flip-back">
+      <h3>Demon Slayer</h3>
+      <p>A boy hunts demons to save his sister.</p>
+    </div>
+  </div>
+</div>
+
+<!-- One Piece -->
+<div class="flip-card">
+  <div class="flip-inner">
+    <div class="flip-front">
+      <img src="img/onepiece.jpeg" alt="One Piece">
+    </div>
+    <div class="flip-back">
+      <h3>One Piece</h3>
+      <p>An epic pirate adventure in search of treasure.</p>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>© 2026 Anime Web</footer>
+
+</div>
+</body>
+</html>

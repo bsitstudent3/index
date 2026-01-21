@@ -78,6 +78,21 @@ aside li:hover {
   color: black;
 }
 
+.nav-link {
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+.nav-link:hover {
+  color: black;
+}
+
+/* Highlight current page */
+.active {
+  background: #ff4dff;
+  color: black;
+}
+
 /* ===== MAIN CONTENT ===== */
 main {
   grid-area: main;
@@ -164,11 +179,11 @@ footer {
 <aside>
   <h2>Categories</h2>
   <ul>
-    <li><a href="index.html" style="color:white;text-decoration:none;">Home</a></li>
-    <li>Action</li>
-    <li>Fantasy</li>
-    <li>Romance</li>
-    <li>Sci-Fi</li>
+    <li><a href="index.html" class="nav-link">Home</a></li>
+    <li class="active">Action</li>
+    <li><a href="fantasy.html" class="nav-link">Fantasy</a></li>
+    <li><a href="romance.html" class="nav-link">Romance</a></li>
+    <li><a href="scifi.html" class="nav-link">Sci-Fi</a></li>
   </ul>
 </aside>
 
